@@ -1,0 +1,405 @@
+:root {
+  --primary: #0d6efd;
+  --success: #198754;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --text: #e0e0e0;
+  --muted: #888888;
+  --border: #2c2c2c;
+  --radius: 10px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px;
+  text-align: center;
+}
+
+.App-header {
+  background-color: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+  color: var(--primary);
+}
+
+.App-header p {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lottery-status, .actions, .admin-actions {
+  background-color: var(--surface);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+
+h2 {
+  color: var(--primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+h3 {
+  color: var(--text);
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.error-message {
+  background-color: rgba(220, 53, 69, 0.1);
+  color: var(--danger);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.success-message {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--success);
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  margin: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.btn:hover {
+  background-color: #0b5ed7;
+  transform: scale(1.03);
+}
+
+.btn:disabled {
+  background-color: #555;
+  color: #aaa;
+  cursor: not-allowed;
+}
+
+.buy-ticket {
+  background-color: var(--success);
+}
+
+.buy-ticket:hover {
+  background-color: #157347;
+}
+
+.select-winner {
+  background-color: var(--warning);
+  color: black;
+}
+
+.select-winner:hover {
+  background-color: #e0a800;
+}
+
+.open-lottery {
+  background-color: var(--primary);
+}
+
+.open-lottery:hover {
+  background-color: #0b5ed7;
+}
+
+.update-price {
+  background-color: #6f42c1;
+}
+
+.update-price:hover {
+  background-color: #5a32a3;
+}
+
+.price-update {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+input {
+  padding: 12px;
+  background-color: #2a2a2a;
+  color: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  width: 200px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  outline: none;
+}
+
+@media (max-width: 600px) {
+  .App {
+    padding: 12px;
+  }
+
+  .price-update {
+    flex-direction: column;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+.lottery-status {
+  background: rgba(20, 20, 20, 0.75);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.lottery-status::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 0%, transparent 60%);
+  animation: pulseGlow 4s infinite linear;
+  z-index: 0;
+}
+
+@keyframes pulseGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.lottery-status * {
+  position: relative;
+  z-index: 1;
+}
+
+.lottery-status h2 {
+  font-size: 1.8rem;
+  color: #00bfff;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.lottery-status p {
+  font-size: 1rem;
+  margin: 10px 0;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+.lottery-status p:last-child {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #7de2fc;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 8px 12px;
+  border-left: 3px solid #00bcd4;
+  border-radius: 6px;
+  margin-top: 18px;
+  word-break: break-word;
+}
+.actions, .admin-actions {
+  background: rgba(20, 20, 20, 0.75);
+  padding: 25px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.actions h2,
+.admin-actions h3 {
+  color: #00bfff;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.admin-actions h3 {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-top: 0;
+}
+
+input {
+  background-color: rgba(40, 40, 40, 0.8);
+  border: 1px solid #00bfff;
+  color: #e5e5e5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  width: 220px;
+  outline: none;
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 0 6px rgba(0, 191, 255, 0.3);
+}
+
+input:focus {
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.5);
+}
+
+.update-price {
+  background: linear-gradient(145deg, #222, #111);
+  color: #ddd;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.update-price:hover {
+  background: linear-gradient(145deg, #00bcd4, #007c91);
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.7);
+}
+
+.update-price:disabled {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  box-shadow: none;
+}
+.App-header {
+  background: rgba(20, 20, 20, 0.75);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.05), 0 8px 32px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-bottom: 32px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* No rotating animation anymore */
+.App-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.05) 0%, transparent 70%);
+  z-index: 0;
+}
+
+.App-header * {
+  position: relative;
+  z-index: 1;
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  color: #00bfff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.App-header p {
+  margin: 0;
+  font-size: 1rem;
+  color: #7de2fc;
+  font-family: 'Courier New', monospace;
+}
+
+.lottery-status p:last-child {
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  color: #00eaff;
+  background: rgba(0, 255, 255, 0.1);
+  padding: 10px 14px;
+  border-left: 3px solid #00bcd4;
+  border-radius: 8px;
+  margin-top: 20px;
+  word-break: break-word;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.profile-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #4a90e2;
+}
