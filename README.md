@@ -14,15 +14,15 @@ Made by Kartik Hiranandani, Harsh Bhati, Abhiraj Kumar, Buradkar Kalyani, Nityam
 
 ## Screenshots
 
--Initial Balance in acconts showed using ganache
+- Initial Balance in acconts showed using ganache
 (https://github.com/user-attachments/assets/d55888af-41e5-4af3-866c-c8498d966e4e)
--Admin Page 
+- Admin Page 
 (https://github.com/user-attachments/assets/6ab9f3bc-0533-4d35-be2b-48f3051eaa41)
--Normal-user Page
+- Normal-user Page
 (https://github.com/user-attachments/assets/9774b409-9d4f-48d8-88c4-5bc1ad537612)
--Admin page for selecting winner
+- Admin page for selecting winner
 (https://github.com/user-attachments/assets/595ddfca-97a6-4121-8992-bdee4bb4289f)
--Final balnce in Accounts
+- Final balnce in Accounts
 (https://github.com/user-attachments/assets/fb34e867-9580-440d-8167-077e42bef105)
 
 ## Technology Stack
